@@ -1,0 +1,17 @@
+<ul class='list-group'>
+  <li class='list-group-item list-group-item-secondary'>
+    <h2> <%= @entry.title %> </h2>
+    <div><img src="<%= @entry.photo.url %>" class="rounded float-left img-fluid"/></div>
+  </li>
+  <li class='list-group-item list-group-item-secondary border-0'>
+    <% if @entry.fields.key?(:tags) %>
+      <span class='badge badge-secondary'> <%= @entry.tags.map(&:name).join(', ') %> </span>
+    <% end %>
+  </li>
+  <li class='list-group-item list-group-item-secondary border-0'>
+    <p> <%= @entry.description %> </p>
+  </li>
+  <li class='list-group-item list-group-item-secondary'>
+    <p> <%= @entry.chef.name if @entry.fields.key?(:chef) %></p>
+  </li>
+</ul>
